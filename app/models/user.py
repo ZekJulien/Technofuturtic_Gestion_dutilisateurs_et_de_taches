@@ -8,14 +8,16 @@ class User(Base):
     """
     User model.
 
-    The user can have several tasks.
+    A user can have zero to multiple tasks (zero-to-many relationship).
+    Tasks are optional for a user.
 
-    Args:
-        id: int
-        username: str
-        email: str
-        password: str
-        is_active: bool
+    Attributes:
+        id: int - Primary key
+        username: str - User's name
+        email: str - User's email address
+        password: str - User's password
+        is_active: bool - User's status (defaults to True)
+        tasks: List[Task] - Collection of user's tasks (can be empty)
     """
     __tablename__ = "user"
 
@@ -23,6 +25,6 @@ class User(Base):
     username = Column(String, nullable=False)
     email = Column(String, nullable=False)
     password = Column(String, nullable=False)
-    is_active = Column(Boolean, nullable=False)
+    is_active = Column(Boolean, default=True)
 
-    tasks = relationship("Task", back_populates="user")
+    tasks = relationship("Task", back_populates="user", cascade="all, delete")

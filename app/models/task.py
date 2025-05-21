@@ -21,6 +21,6 @@ class Task(Base):
 
     id = Column(Integer, primary_key=True)
     description = Column(String, nullable=False)
-    id_user = Column(Integer, ForeignKey("user.id"), nullable=False)
+    id_user = Column(Integer, ForeignKey("user.id"), nullable=True)
 
-    user = relationship("User", back_populates="task")
+    user = relationship("User", back_populates="tasks")
