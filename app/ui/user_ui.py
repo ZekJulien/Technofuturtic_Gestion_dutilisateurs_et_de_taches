@@ -68,9 +68,6 @@ class UserUI:
             Tools.sleep(3)
             return
         
-
-
-    
     def menu_user(self):
         while True:
             Tools.clearConsole()

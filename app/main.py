@@ -1,9 +1,7 @@
 # database
 from database import Db
 # ui
-from ui import UserUI
-# services
-from services import UserService, TaskService
+from ui import UserUI, TaskUi
 # tools
 from tools import Tools
 
@@ -15,7 +13,7 @@ class App:
     """
     def __init__(self):
         self._user_ui : UserUI = None
-        self._task_service: TaskService = None
+        self._task_ui : TaskUi = None
         self._initialize_app()
         self.menu()
         #self._testing()
@@ -29,10 +27,7 @@ class App:
         Db.create_tables()
         print("✅ Connection established")
         self._user_ui = UserUI()
-        self._task_service = TaskService()
-
-
-
+        self._task_ui = TaskUi()
 
     def menu(self):
         Tools.clearConsole()
@@ -51,7 +46,7 @@ class App:
                 case 1:
                     self._user_ui.menu_user()
                 case 2:
-                    pass
+                    self._task_ui.menu_task()
                 case 3:
                     exit(1)
 

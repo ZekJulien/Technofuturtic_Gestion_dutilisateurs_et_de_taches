@@ -34,15 +34,15 @@ class TaskRepository(DbTools):
         """
         return self.session.query(Task).all()
     
-    def get_by_user(self, id_user : int):
+    def get_by_user(self, id_user : int) -> list[Task]:
         """
-        Get a task by user id from the database.
+        Get a list of task by user id from the database.
         arguments:
             id_user: int
         returns:
-            Task: The task with the given user id.
+            Task: The tasks with the given user id.
         """
-        return self.session.query(Task).filter_by(id_user=id_user).first()
+        return self.session.query(Task).filter_by(id_user=id_user).all()
     
     def get_by_id(self, id_task : int):
         """

@@ -28,5 +28,5 @@ class Task(Base):
     def __str__(self):
         return f"""
             Description : {self.description}
-            Utilisateur affecté à la tâche : {self.user.username if self.user else "Aucun"}
+            User assigned to the task : {self.user.username if self.user else "Aucun"}
         """

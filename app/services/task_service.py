@@ -35,17 +35,17 @@ class TaskService:
             return tasks
         print(f"🔤 No task(s) 🛑")
 
-    def get_by_user(self, id_user : int) -> User:
+    def get_by_user(self, id_user : int) -> list[Task]:
         """
-        Get a task by user id from the database.
+        Get a list of tasks by user id from the database.
         arguments:
             id_user: int
         returns:
-            Task: The task with the given user id.
+            Tasks: The tasks with the given user id.
         """
-        task = self._task_repository.get_by_user(id_user=id_user)
-        if task:
-            return task
+        tasks = self._task_repository.get_by_user(id_user=id_user)
+        if tasks:
+            return tasks
         print(f"🔤 No task(s) 🛑")
 
     def update(self, id_task : int, description : str = None, user : User = None) -> Task:
