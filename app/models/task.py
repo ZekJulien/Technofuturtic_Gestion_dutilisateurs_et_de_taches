@@ -26,7 +26,4 @@ class Task(Base):
     user = relationship("User", back_populates="tasks")
 
     def __str__(self):
-        return f"""
-            Description : {self.description}
-            User assigned to the task : {self.user.username if self.user else "Aucun"}
-        """
+        return f"Description : {self.description}\nUser assigned to the task : {self.user.username if self.user else "Aucun"}"
