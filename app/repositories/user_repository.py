@@ -1,5 +1,3 @@
-# sqlalchemy
-from sqlalchemy.orm import Session
 # tools
 from tools import DbTools
 # database

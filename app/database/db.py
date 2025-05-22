@@ -1,6 +1,6 @@
 # sqlalchemy
 from sqlalchemy import create_engine
-from sqlalchemy.orm import sessionmaker, session
+from sqlalchemy.orm import sessionmaker, session, scoped_session
 from sqlalchemy.exc import SQLAlchemyError
 # database
 from database import URL_DB
@@ -12,7 +12,8 @@ class Db:
     Initialize the database connection.
     """
     _engine = create_engine(URL_DB)
-    _session = sessionmaker(bind=_engine)
+    _session_factory = sessionmaker(bind=_engine)
+    _session = scoped_session(_session_factory)
 
     @staticmethod
     def is_connected():
