@@ -24,3 +24,9 @@ class Task(Base):
     id_user = Column(Integer, ForeignKey("user.id"), nullable=True)
 
     user = relationship("User", back_populates="tasks")
+
+    def __str__(self):
+        return f"""
+            Description : {self.description}
+            Utilisateur affecté à la tâche : {self.user.username if self.user else "Aucun"}
+        """

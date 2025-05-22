@@ -34,5 +34,5 @@ class Db:
         """
         Creates all tables in the database if they don't exist.
         """
-        Base.metadata.drop_all(Db._engine)
+        #Base.metadata.drop_all(Db._engine)
         Base.metadata.create_all(Db._engine)

@@ -28,3 +28,11 @@ class User(Base):
     is_active = Column(Boolean, default=True)
 
     tasks = relationship("Task", back_populates="user", cascade="all, delete")
+
+    def __str__(self):
+        return f"""
+            Username : {self.username}
+            Email : {self.email}
+            Actif : {"✅" if self.is_active else "❎"}
+        """
+    

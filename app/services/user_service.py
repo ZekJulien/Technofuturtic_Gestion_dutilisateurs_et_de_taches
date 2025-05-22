@@ -41,6 +41,7 @@ class UserService:
             return users
         else:
             print(f"👨‍💼 No user(s) 🛑")
+            return False
     
     def get_by_email(self, email : str):
         """
@@ -79,8 +80,8 @@ class UserService:
         )
         updated_user = self._user_repository.update(update_user)
         if update_user:
-            print(f"👨‍💼 The user {updated_user.username} has been updated in database. ✅")
-            return update_user
+            print(f"👨‍💼 The user has been updated in database. ✅")
+            print(update_user)
         return False
     
     def delete(self, id : int):
